@@ -5,10 +5,10 @@ import android.app.Application;
 /**
  * 作者： 钟雄辉
  * 时间： 2019/6/20
- * 描述： 所有module不单独运行时所用的application
+ * 描述： module作为组件运行时需要针对该module定制的Application
  **/
 public interface IApplicationDelegate {
-    void onCreate(Application application);
+    void initModuleApp(Application application);
 
-    void onLowMemory();
+    void onModuleAppLowMemory();
 }

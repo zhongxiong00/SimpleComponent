@@ -17,7 +17,7 @@ import com.lib.common.log.LogUtils;
  **/
 public class HomeApplicationDelegate implements IApplicationDelegate {
     @Override
-    public void onCreate(Application application) {
+    public void initModuleApp(Application application) {
         LogUtils.e("初始化首页组件");
         TabFactory.getInstance().setTabHomePage(new ITabPage() {
             @Override
@@ -38,7 +38,7 @@ public class HomeApplicationDelegate implements IApplicationDelegate {
     }
 
     @Override
-    public void onLowMemory() {
+    public void onModuleAppLowMemory() {
 
     }
 }

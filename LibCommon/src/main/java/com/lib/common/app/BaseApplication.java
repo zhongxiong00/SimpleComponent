@@ -11,6 +11,7 @@ import com.squareup.leakcanary.LeakCanary;
  * 作者： 钟雄辉
  * 时间： 2019/6/20
  * 描述： 所有module单独运行的时候，所用的Application必须继承此Application
+ * module获取application通过AppConfig
  **/
 public class BaseApplication extends MultiDexApplication {
     @Override
@@ -27,6 +28,7 @@ public class BaseApplication extends MultiDexApplication {
             ARouter.openDebug();
         }
         ARouter.init(this);
+        AppConfig.getInstance().cacheApplication(this);
     }
 
     private void initAllComponent() {//初始化所有注册的组件

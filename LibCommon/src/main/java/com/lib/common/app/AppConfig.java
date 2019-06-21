@@ -14,6 +14,8 @@ public class AppConfig {
     private final String MODULE_MAIN = "com.module.main.MainAppDelegate";
     private final String HOME_MUDLE_APP = "com.module.home.HomeApplicationDelegate";
     private static AppConfig INSTANCE = new AppConfig();
+    private Application mApplication;
+
     private List<IApplicationDelegate> mAppComponentList;
     public String[] mModuleApp = new String[]{
             MODULE_MAIN, HOME_MUDLE_APP
@@ -23,17 +25,26 @@ public class AppConfig {
         mAppComponentList = new ArrayList<>();
     }
 
+    public void cacheApplication(Application application) {
+        this.mApplication = application;
+    }
+
+    public Application getApplication() {
+        return mApplication;
+    }
+
     public static AppConfig getInstance() {
         return INSTANCE;
     }
 
+    //初始化各个组件
     public void registerAllComponent(Application application) {
         for (String moduleApp : mModuleApp) {
             try {
                 Class clazz = Class.forName(moduleApp);
                 IApplicationDelegate app = (IApplicationDelegate) clazz.newInstance();
                 mAppComponentList.add(app);
-                app.onCreate(application);
+                app.initModuleApp(application);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
@@ -47,7 +58,7 @@ public class AppConfig {
     public void onLowMemory() {
         if (mAppComponentList != null) {
             for (IApplicationDelegate appDelegate : mAppComponentList) {
-                appDelegate.onLowMemory();
+                appDelegate.onModuleAppLowMemory();
             }
         }
     }
