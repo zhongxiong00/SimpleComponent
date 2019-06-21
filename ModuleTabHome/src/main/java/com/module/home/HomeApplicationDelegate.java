@@ -18,7 +18,7 @@ import com.lib.common.log.LogUtils;
 public class HomeApplicationDelegate implements IApplicationDelegate {
     @Override
     public void initModuleApp(Application application) {
-        LogUtils.e("初始化首页组件");
+        LogUtils.e("首页组件初始化");
         TabFactory.getInstance().setTabHomePage(new ITabPage() {
             @Override
             public String getTabName() {
