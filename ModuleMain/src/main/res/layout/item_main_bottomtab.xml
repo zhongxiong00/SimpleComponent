@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="44dp"
+    android:layout_height="wrap_content"
+    android:paddingTop="1dp"
+    android:paddingBottom="1dp">
+
+    <ImageView
+        android:id="@+id/iv_tabicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/tv_tabname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_tabicon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:lines="1"
+        android:textColor="@color/selector_main_tab_textcolor"
+        android:textSize="11sp"
+        tools:text="标题" />
+</RelativeLayout>

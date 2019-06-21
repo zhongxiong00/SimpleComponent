@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api versions.supportV4
+    api versions.supportV7
+    api versions.constraintLayout
+    api versions.autoSize
+    api versions.okhttp
+    api versions.easyPermission
+    api versions.smartRefreshLayout
+    api versions.gson
+    api versions.eventbus
+    api versions.walle
+    api versions.supportDesign
+    api versions.multidex
+    api versions.commonAdapter
+    debugApi versions.leakcanary
+    releaseApi versions.leakcanaryNoOp
+    api versions.ARoute
+    annotationProcessor versions.ARouteCompiler
+    implementation project(path: ':LibImageloader')
+}
