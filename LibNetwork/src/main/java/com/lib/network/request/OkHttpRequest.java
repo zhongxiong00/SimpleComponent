@@ -4,6 +4,7 @@ package com.lib.network.request;
 import com.lib.network.deliver.AndroidDeliver;
 import com.lib.network.request.builder.BaseRequestBuilder;
 import com.lib.network.response.IResponse;
+import com.lib.network.response.callback.FileCallBack;
 
 import java.io.IOException;
 import java.util.Map;
@@ -81,7 +82,7 @@ public class OkHttpRequest<T extends BaseRequestBuilder> {
                 @Override
                 public void onResponse(final Call call, final Response okhttpResponse) {
                     if (response != null) {
-                        if (okhttpResponse != null) {
+                        if (okhttpResponse != null && okhttpResponse.isSuccessful()) {
                             try {
                                 final Object o = response.parseResult(okhttpResponse); //异步线程解析数据
                                 if (o != null) {
@@ -92,17 +93,23 @@ public class OkHttpRequest<T extends BaseRequestBuilder> {
                                         }
                                     });
                                 } else {
-
+                                    response.onFail(call, new RuntimeException("数据解析异常"));
                                 }
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
 
+                        } else {
+                            response.onFail(call, new RuntimeException("接口返回错误"));
                         }
-
                     }
                 }
             });
         }
+    }
+
+    //下载文件
+    public void download(FileCallBack callBack) {
+        request(callBack);
     }
 }

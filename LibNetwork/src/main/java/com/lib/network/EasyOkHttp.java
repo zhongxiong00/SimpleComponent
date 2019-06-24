@@ -2,7 +2,11 @@ package com.lib.network;
 
 import com.lib.network.request.builder.GetRequestBuilder;
 import com.lib.network.request.OkHttpRequest;
+import com.lib.network.request.builder.PostFileBuilder;
 import com.lib.network.request.builder.PostRequestBuilder;
+
+import java.io.File;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 
@@ -34,6 +38,16 @@ public class EasyOkHttp {
     //post请求
     public OkHttpRequest<PostRequestBuilder> post() {
         return new OkHttpRequest<>(new PostRequestBuilder(), mOkhttpClient);
+    }
+
+    //下载文件
+    public OkHttpRequest<GetRequestBuilder> download() {
+        return new OkHttpRequest<>(new GetRequestBuilder(), mOkhttpClient);
+    }
+
+    //上传文件
+    public OkHttpRequest<PostFileBuilder> postFile(List<File> files) {
+        return new OkHttpRequest<>(new PostFileBuilder(files), mOkhttpClient);
     }
 
     //根据tag取消网络任务

@@ -4,6 +4,11 @@ import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
+/**
+ * 作者： 钟雄辉
+ * 时间： 2019/6/24
+ * 描述： post请求
+ **/
 public class PostRequestBuilder extends BaseRequestBuilder {
     @Override
     public Request build() {
