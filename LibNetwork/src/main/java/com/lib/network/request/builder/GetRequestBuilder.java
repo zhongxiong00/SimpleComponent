@@ -20,6 +20,7 @@ public class GetRequestBuilder extends BaseRequestBuilder {
     @Override
     public Request build() {
         Request request = new Request.Builder()
+                .tag(tag)
                 .url(appendParams(url, params))
                 .headers(appendHeaders())
                 .get()

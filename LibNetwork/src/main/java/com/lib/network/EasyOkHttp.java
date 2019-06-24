@@ -7,6 +7,7 @@ import com.lib.network.request.builder.PostRequestBuilder;
 
 import java.io.File;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 
@@ -17,9 +18,14 @@ import okhttp3.OkHttpClient;
  **/
 public class EasyOkHttp {
     private OkHttpClient mOkhttpClient;
+    private final int DEFAULT_TIMEOUT = 20;
 
     private EasyOkHttp() {
-        mOkhttpClient = new OkHttpClient();
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+        builder.readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+        builder.writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+        mOkhttpClient = builder.build();
     }
 
     private static class EasyOkHttpInner {
@@ -28,6 +34,15 @@ public class EasyOkHttp {
 
     public static EasyOkHttp getInstance() {
         return EasyOkHttpInner.INSTANCE;
+    }
+
+    //配置超时时间
+    public void config(int timeOutSec) {
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.connectTimeout(timeOutSec, TimeUnit.SECONDS);
+        builder.readTimeout(timeOutSec, TimeUnit.SECONDS);
+        builder.writeTimeout(timeOutSec, TimeUnit.SECONDS);
+        mOkhttpClient = builder.build();
     }
 
     //get请求

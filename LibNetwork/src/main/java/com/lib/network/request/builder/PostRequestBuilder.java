@@ -15,6 +15,7 @@ public class PostRequestBuilder extends BaseRequestBuilder {
         RequestBody requestBody = appendParam()
                 .build();
         Request request = new Request.Builder()
+                .tag(tag)
                 .url(url)
                 .headers(appendHeaders())
                 .post(requestBody)

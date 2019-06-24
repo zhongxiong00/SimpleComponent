@@ -29,6 +29,14 @@ public class OkHttpRequest<T extends BaseRequestBuilder> {
         this.okHttpClient = okHttpClient;
     }
 
+    //设置tag,用于取消网络请求
+    public OkHttpRequest tag(Object tag) {
+        if (requestBuilder != null) {
+            requestBuilder.tag(tag);
+        }
+        return this;
+    }
+
     //设置请求url
     public OkHttpRequest url(String url) {
         if (requestBuilder != null) {

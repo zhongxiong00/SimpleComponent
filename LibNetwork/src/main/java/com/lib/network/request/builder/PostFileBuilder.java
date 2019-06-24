@@ -38,6 +38,7 @@ public class PostFileBuilder extends BaseRequestBuilder {
         }
         RequestBody requestBody = requestBodyBuilder.build();
         Request request = new Request.Builder()
+                .tag(tag)
                 .url(url)
                 .post(requestBody)
                 .build();
