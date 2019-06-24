@@ -30,11 +30,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(path: ':LibImageloader')
+    api project(path: ':LibNetwork')
     api versions.supportV4
     api versions.supportV7
     api versions.constraintLayout
     api versions.autoSize
-    api versions.okhttp
     api versions.easyPermission
     api versions.smartRefreshLayout
     api versions.gson
@@ -47,5 +48,4 @@ dependencies {
     releaseApi versions.leakcanaryNoOp
     api versions.ARoute
     annotationProcessor versions.ARouteCompiler
-    implementation project(path: ':LibImageloader')
 }

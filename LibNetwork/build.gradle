@@ -22,4 +22,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api versions.okhttp
+    implementation versions.supportAnnotation
 }
