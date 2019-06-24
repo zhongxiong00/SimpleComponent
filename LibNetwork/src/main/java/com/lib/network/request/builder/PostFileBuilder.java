@@ -22,7 +22,7 @@ public class PostFileBuilder extends BaseRequestBuilder {
 
     @Override
     public Request build() {
-        MediaType MutilPart_Form_Data = MediaType.parse("multipart/form-data; charset=utf-8");
+        MediaType mutilPartFormData = MediaType.parse("multipart/form-data; charset=utf-8");
         MultipartBody.Builder requestBodyBuilder = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM);
         //添加参数
@@ -34,7 +34,7 @@ public class PostFileBuilder extends BaseRequestBuilder {
         //循环添加文件
         for (int i = 0; i < files.size(); i++) {
             File file = files.get(i);
-            requestBodyBuilder.addFormDataPart("imgs", file.getName(), RequestBody.create(MutilPart_Form_Data, file));
+            requestBodyBuilder.addFormDataPart("imgs", file.getName(), RequestBody.create(mutilPartFormData, file));
         }
         RequestBody requestBody = requestBodyBuilder.build();
         Request request = new Request.Builder()
