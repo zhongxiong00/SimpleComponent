@@ -10,6 +10,7 @@ import com.lib.common.mvp.MvpBaseActivity;
 import com.lib.common.presenter.BasePresenter;
 import com.lib.common.ui.iview.IBaseView;
 import com.lib.common.viewutils.ToastUtil;
+import com.lib.network.EasyOkHttp;
 
 import java.util.List;
 
@@ -73,6 +74,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends MvpBaseActiv
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        EasyOkHttp.getInstance().cancelTag(this);
     }
 
     protected abstract int layoutId();

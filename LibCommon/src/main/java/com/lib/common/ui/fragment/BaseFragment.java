@@ -12,6 +12,7 @@ import com.lib.common.mvp.MvpBaseFragment;
 import com.lib.common.presenter.BasePresenter;
 import com.lib.common.ui.iview.IBaseView;
 import com.lib.common.viewutils.ToastUtil;
+import com.lib.network.EasyOkHttp;
 
 
 /**
@@ -40,6 +41,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends MvpBaseFragm
     @Override
     public void onDestroy() {
         super.onDestroy();
+        EasyOkHttp.getInstance().cancelTag(this);
     }
 
     @Nullable

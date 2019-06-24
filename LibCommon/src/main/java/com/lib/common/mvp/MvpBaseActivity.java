@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.lib.network.EasyOkHttp;
+
 
 /**
  * 作者： 钟雄辉
@@ -36,6 +38,7 @@ public abstract class MvpBaseActivity<P extends MvpBasePresenter> extends AppCom
         if (presenter != null) {
             presenter.detachView();
         }
+
     }
 
     protected abstract P createPresenter();
