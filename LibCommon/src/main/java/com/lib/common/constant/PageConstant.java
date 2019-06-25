@@ -4,8 +4,8 @@ public class PageConstant {
 
     //activity路由
     public static class ActivityRoute {
-        public static final String ROUTE_MAIN = "/activity/MainActivity";
-        public static final String ROUTE_H5 = "/activity/H5Activity";
+        public static final String ROUTE_MAIN = "/main/MainActivity";
+        public static final String ROUTE_H5 = "/h5/H5Activity";
     }
 
     //fragment路由

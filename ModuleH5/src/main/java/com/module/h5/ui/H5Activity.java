@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.lib.common.constant.PageConstant;
 import com.lib.common.ui.activity.BaseActivity;
 import com.module.h5.R;
@@ -28,6 +29,7 @@ public class H5Activity extends BaseActivity<H5Presenter> {
 
     @Override
     protected void initLayoutView(Bundle savedInstanceState) {
+        ARouter.getInstance().inject(this);
         mWebView = findViewById(R.id.wv_h5_main);
         mWebView.loadUrl("https://www.baidu.com");
     }
