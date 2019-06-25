@@ -1,5 +1,6 @@
 package com.module.main.debug;
 
+import com.lib.common.app.AppConfig;
 import com.lib.common.app.BaseApplication;
 
 /**
@@ -12,5 +13,6 @@ public class MainApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        AppConfig.getInstance().registerComponent(this, AppConfig.getInstance().MODULE_MAIN);
     }
 }
