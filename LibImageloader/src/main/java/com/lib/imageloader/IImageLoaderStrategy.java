@@ -9,7 +9,7 @@ import android.widget.ImageView;
  * 时间： 2019/6/19
  * 描述： 图片加载策略接口
  **/
-interface IImageLoaderStrategy {
+public interface IImageLoaderStrategy {
     void init();
 
     //加载普通图片

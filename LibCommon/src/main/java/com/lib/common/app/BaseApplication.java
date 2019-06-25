@@ -27,6 +27,7 @@ public class BaseApplication extends MultiDexApplication {
             ARouter.openLog();
             ARouter.openDebug();
         }
+        ImageLoader.getInstance().getLoadStrategy().init();
         ARouter.init(this);
         AppConfig.getInstance().cacheApplication(this);
     }
@@ -38,7 +39,7 @@ public class BaseApplication extends MultiDexApplication {
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        ImageLoader.getInstance().clearMemoryCache(this);
+        ImageLoader.getInstance().getLoadStrategy().clearMemoryCache(this);
         AppConfig.getInstance().onLowMemory();
     }
 }

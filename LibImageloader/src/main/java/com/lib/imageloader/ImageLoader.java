@@ -36,18 +36,7 @@ public class ImageLoader {
         }
     }
 
-
-    //清除内存缓存
-    public void clearMemoryCache(Context c) {
-        if (mLoader != null) {
-            mLoader.clearMemoryCache(c);
-        }
-    }
-
-    //清除磁盘缓存
-    public void clearDiskCache(Context c) {
-        if (mLoader != null) {
-            mLoader.clearDiskCache(c);
-        }
+    public IImageLoaderStrategy getLoadStrategy() {
+        return mLoader;
     }
 }
