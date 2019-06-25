@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Base64;
 
+import com.lib.common.app.AppConfig;
 import com.lib.common.utils.AppUtils;
 
 import java.io.ByteArrayInputStream;
@@ -40,10 +41,10 @@ public class SPUtils {
             synchronized (SPUtils.class) {
                 if (spUtils == null) {
                     synchronized (SPUtils.class) {
-                        if (AppUtils.getApplication() != null) {
-                            spUtils = new SPUtils(AppUtils.getApplication(), SP_NAME);
+                        if (AppConfig.getInstance().getApplication() != null) {
+                            spUtils = new SPUtils(AppConfig.getInstance().getApplication(), SP_NAME);
                         } else {
-                            throw new RuntimeException("you should init CommonUtils");
+                            throw new RuntimeException("you should init AppConfig");
                         }
                     }
                 }

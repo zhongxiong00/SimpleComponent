@@ -22,19 +22,6 @@ import java.util.List;
  **/
 public class AppUtils {
     private static long currentSystemTime;
-    private static Application mApplication;
-
-
-    public static void cacheContext(Application application) {
-        mApplication = application;
-    }
-
-    public static Application getApplication() {
-        if (mApplication == null) {
-            throw new RuntimeException("must invoke cacheContext");
-        }
-        return mApplication;
-    }
 
     public static void exitAfterPress(Activity activity, long delayTime) {
         if (System.currentTimeMillis() - currentSystemTime > delayTime && activity != null) { //连续按两次间隔小于两秒
