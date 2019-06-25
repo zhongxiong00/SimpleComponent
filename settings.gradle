@@ -1,1 +1,1 @@
-include ':app', ':LibNetwork', ':LibImageloader', ':LibCommon', ':ModuleTabHome', ':ModuleMain'
+include ':app', ':LibNetwork', ':LibImageloader', ':LibCommon', ':ModuleTabHome', ':ModuleMain', ':ModuleH5'

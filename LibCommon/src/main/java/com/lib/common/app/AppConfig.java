@@ -13,12 +13,13 @@ import java.util.List;
 public class AppConfig {
     private final String MODULE_MAIN = "com.module.main.MainAppDelegate";
     private final String HOME_MUDLE_APP = "com.module.home.HomeApplicationDelegate";
+    private final String HOME_MUDLE_H5 = "com.module.h5.H5AppDelegate";
     private static AppConfig INSTANCE = new AppConfig();
     private Application mApplication;
 
     private List<IApplicationDelegate> mAppComponentList;
     public String[] mModuleApp = new String[]{
-            MODULE_MAIN, HOME_MUDLE_APP
+            MODULE_MAIN, HOME_MUDLE_APP, HOME_MUDLE_H5
     };
 
     private AppConfig() {

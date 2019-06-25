@@ -23,7 +23,7 @@ import java.util.List;
 public abstract class BaseActivity<P extends BasePresenter> extends MvpBaseActivity<P> implements IBaseView {
 
     @Override
-    protected final void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layoutId());
         initLayoutView(savedInstanceState);

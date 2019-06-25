@@ -51,15 +51,15 @@ public abstract class GsonHttpCallback<T> extends OkHttpResponse<ResultBean<T>> 
     }
 
     @Override
-    public void onFail(okhttp3.Call call, IOException e){
-        LogUtils.e("网络请求url: " + call.request().url());
-        error("连接服务器异常");
+    public void onFail(Call call, Exception e) {
+
     }
 
     @Override
-    public void onSuccess(Call call, Response okresponse) {
+    public void onSuccess(Call call, ResultBean<T> result) {
 
     }
+
 
     protected abstract void error(String msg);
 
