@@ -23,7 +23,9 @@ public class BaseApplication extends MultiDexApplication {
 
     private void initCommonApp() {//所有组件单独运行时都需要做的初始化工作
         if (BuildConfig.DEBUG) {
-            LeakCanary.install(this);
+            if (!LeakCanary.isInAnalyzerProcess(this)) {
+                LeakCanary.install(this);
+            }
             ARouter.openLog();
             ARouter.openDebug();
         }
