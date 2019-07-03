@@ -11,7 +11,7 @@
 #指定各个module是否单独运行
 isModuleH5Alone=true
 isModuleMainAlone=false
-isHomeModulelAlone=false
+isModulelHomeAlone=false
 ```
 2.build.gradle文件的配置参考其他module.
 

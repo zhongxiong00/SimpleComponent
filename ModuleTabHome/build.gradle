@@ -1,4 +1,4 @@
-if (isHomeModulelAlone.toBoolean()) {
+if (isModulelHomeAlone.toBoolean()) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -7,7 +7,7 @@ if (isHomeModulelAlone.toBoolean()) {
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        if (isHomeModulelAlone.toBoolean()) {
+        if (isModulelHomeAlone.toBoolean()) {
             applicationId "com.module.home"
         }
         javaCompileOptions {
@@ -22,7 +22,7 @@ android {
     }
     sourceSets {
         main {
-            if (isHomeModulelAlone.toBoolean()) {
+            if (isModulelHomeAlone.toBoolean()) {
                 manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
