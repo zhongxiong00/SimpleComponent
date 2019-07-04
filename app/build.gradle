@@ -8,6 +8,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.app_version_code
         versionName rootProject.ext.app_version_name
+        resConfigs('zh-rCN', 'ko')
         multiDexEnabled true
     }
     buildTypes {
