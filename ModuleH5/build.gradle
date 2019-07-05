@@ -7,7 +7,7 @@ if (isModuleH5Alone.toBoolean()) {
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        if (isModuleMainAlone.toBoolean()) {
+        if (isModuleH5Alone.toBoolean()) {
             applicationId "com.module.h5"
         }
         javaCompileOptions {

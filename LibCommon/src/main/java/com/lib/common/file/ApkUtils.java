@@ -8,6 +8,7 @@ import android.content.pm.Signature;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.lib.common.app.AppConfig;
 import com.lib.common.utils.AppUtils;
 
 import java.io.ByteArrayInputStream;
@@ -154,9 +155,9 @@ public class ApkUtils {
         if (!TextUtils.isEmpty(verName)) { //缓存
             return verName;
         }
-        String pkName = AppUtils.getApplication().getPackageName();
+        String pkName = AppConfig.getInstance().getApplication().getPackageName();
         try {
-            verName = AppUtils.getApplication().getPackageManager().getPackageInfo(pkName, 0).versionName;
+            verName = AppConfig.getInstance().getApplication().getPackageManager().getPackageInfo(pkName, 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -167,9 +168,9 @@ public class ApkUtils {
         if (verCode != -1) {
             return verCode;
         }
-        String pkName = AppUtils.getApplication().getPackageName();
+        String pkName = AppConfig.getInstance().getApplication().getPackageName();
         try {
-            verCode = AppUtils.getApplication().getPackageManager().getPackageInfo(pkName, 0).versionCode;
+            verCode = AppConfig.getInstance().getApplication().getPackageManager().getPackageInfo(pkName, 0).versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

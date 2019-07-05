@@ -20,6 +20,10 @@ android {
         versionCode rootProject.ext.app_version_code
         versionName rootProject.ext.app_version_name
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     sourceSets {
         main {
             if (isModulelHomeAlone.toBoolean()) {
